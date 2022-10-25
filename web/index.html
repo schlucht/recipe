@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <title>Delta-V Home</title>
 </head>
-<body>    
+<body class="p-2">    
     <div class="container-fluid">
         <div class="row">
             <!--left column for the unitname an productname-->
@@ -52,7 +52,7 @@
             </div>
             <!--Middle column for unitprocedure-->
             <div class="col-3  p-2">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 19rem;">
                     <div class="card-header">
                       <h3>Unit Procedures</h3>
                     </div>
@@ -71,46 +71,116 @@
 
             </div>
             <!--Right column for the paramters-->
-            <div class="col-7 bg-primary p-2">
+            <div class="col-7 p-2">
                 <h2>Paramters</h2>
+                <form class="container border p-1 ots-bg my-2">
+                    <div class="row">
+                        <div class="col-4">
+                          <input type="text" class="form-control" placeholder="Parametername" aria-label="First name">
+                        </div>
+                        <div class="col-2">
+                          <input type="text" class="form-control" placeholder="Value" aria-label="Last name">
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="form-control" placeholder="Maximum" aria-label="First name">
+                          </div>
+                          <div class="col-2">
+                            <input type="text" class="form-control" placeholder="Minimum" aria-label="Last name">
+                          </div>
+                          <div class="col-2">
+                            <select class="form-select" placeholder="unit" aria-label="Unit">
+                                <option value="1">-</option>
+                                <option value="2">°C</option>
+                                <option value="3">mbar</option>
+                                <option value="4">bar</option>
+                                <option value="5">l</option>
+                                <option value="6">kg</option>
+                                <option value="7">%</option>
+                            </select>
+                          </div>
+                        <div class="row my-2">
+                            <div class="col">
+                                <button type="button" class="btn btn-success" onclick="newUnitProcedur()">Speichern</button>
+                            </div>
+                        </div>
+                      </div>
+                </form>
+                <div class="accordion accordion-flush ots-bg" id="accordionFlushExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed ots-bg" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-4 border py-2">FP_APP_SOLE</div>
+                                    <div class="col border py-2"><span>Value: </span><span>45</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col border p-2">Umschaltpunkt der Sole im Rührewerk</div>
+                                </div>
+                            </div>
+                        </button>
+                      </h2>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="row border-bottom py-2">
+                                <div class="col">#1</div>
+                                <div class="col">22.Oct.2022</div>
+                                <div class="col">35</div>
+                                <div class="col">SL</div>
+                            </div>
+                            <div class="row border-bottom py-2">
+                                <div class="col">#2</div>
+                                <div class="col">19.Oct.2022</div>
+                                <div class="col">38</div>
+                                <div class="col">SL</div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <div class="container">
+                            <div class="row">
+                                <div class="col-4 border py-2">FP_KK_TWC</div>
+                                <div class="col border py-2"><span>Value: </span><span>25</span></div>
+                                <div class="col border py-2"><span>Max: </span><span>80</span></div>
+                                <div class="col border py-2"><span>Min: </span><span>20</span>-</div>
+                                <div class="col border py-2">°C</div>
+                              </div>
+                            </div>
+                        </button>
+                      </h2>
+                      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-4 border py-2">FP_KK_TAH</div>
+                                    <div class="col border py-2"><span>Value: </span><span>55</span></div>
+                                    <div class="col border py-2"><span>Max: </span><span>80</span></div>
+                                    <div class="col border py-2"><span>Min: </span><span>20</span>-</div>
+                                    <div class="col border py-2">°C</div>
+                                  </div>
+                                </div>
+                        </button>
+                      </h2>
+                      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="/static/js/main.js" type="module"></script>
-    <script>
-        function newUnit() {
-            const unit = document.getElementById('unitname');
-            const col = document.getElementById('unitcol')
-            const val = unit.value.toLowerCase();
-            if (val) {
-                let txt = /*html*/`
-                <div class="p-2 border-bottom">
-                    <button class="w-100 btn btn-primary" 
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#${val}"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="${val}"
-                    >${val.toUpperCase()}</button>
-                    <div class="collapse" id="${val}">
-                        <form class="container border p-1">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Neues Produkt eingeben" id="productname">
-                            </div>
-                            <button type="button" class="btn btn-success" onclick="newProduct('${val}')">Speichern</button>
-                        </form>
-                        <ul class="navbar-nav flex-column">                            
-                        </ul>
-                    </div>
-                </div>
-                `;
-                col.insertAdjacentHTML("beforeend", txt);
-            }
-            console.log(unit.value);
-        }
+    <script>   
 
     </script>
 </body>
