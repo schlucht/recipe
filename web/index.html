@@ -9,8 +9,8 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
         integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/print.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/print.css" />
     <title>Delta-V Home</title>
 </head>
 
@@ -18,49 +18,24 @@
     <div class="container-fluid">
         <div class="row">
             <!--left column for the unitname an productname-->
-            <div class="col-2 p-2 d-flex flex-column" id="unitcol">
-                <h3>Unit</h3>
-                <form class="container border p-1">
+            <div class="col-2 p-2 d-flex flex-column bg-warning" >
+                <h3>Product</h3>
+                <form class="container border p-1" id="newProduct">
                     <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Neue Unit eingeben" id="unitname" />
+                        <input type="text" class="form-control" placeholder="Neues Product eingeben" id="productname" />
                     </div>
                     <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here" id="descUnit"
                             style="height: 100px"></textarea>
                         <label for="descUnit">Beschreibung</label>
                     </div>
-                    <button type="button" class="btn btn-success" onclick="newUnit()">
+                    <button type="button" class="btn btn-success" >
                         Speichern
                     </button>
                 </form>
-                <div class="p-2 border-bottom">
-                    <button class="w-100 btn btn-primary" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#q2000" role="button" aria-expanded="false" aria-controls="q2000">
-                        Q2000
-                    </button>
-                    <div class="collapse" id="q2000">
-                        <form class="container border p-1">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Neues Produkt eingeben"
-                                    id="productname" />
-                            </div>
-                            <button type="button" class="btn btn-success" onclick="newProduct('q2000')">
-                                Speichern
-                            </button>
-                        </form>
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-item active ps-4">
-                                <a class="nav-link" href="#">ASURA</a>
-                            </li>
-                            <li class="nav-item ps-4">
-                                <a class="nav-link" href="#">Foramsulfuron</a>
-                            </li>
-                            <li class="nav-item ps-4">
-                                <a class="nav-link" href="#">Iodos-3</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <div id="unitcol">
+
+                </div>          
             </div>
             <!--Middle column for unitprocedure-->
             <div class="col-3 p-2 ots-bg" id="procedureid">
@@ -317,8 +292,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-    <script src="/static/js/main.js" type="module"></script>
-    <script></script>
+    <script src="./static/js/main.js" type="module" defer></script>    
 </body>
 
 </html>
