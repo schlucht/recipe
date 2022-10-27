@@ -4,6 +4,7 @@ export class Product {
     constructor(element, data) {
         this.data = data;
         this.products = data;
+        
         this.element = element;
         this.txtArray = [];
         this.printProduct();
