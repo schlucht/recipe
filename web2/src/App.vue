@@ -7,6 +7,4 @@ console.log(product);
   <RouterView />
 </template>
 
-<style>
-
-</style>
+<style></style>

@@ -15,9 +15,7 @@ import productForm from "../components/product/productForm.vue";
       <section id="parameter" class="col-12 col-md-12 col-lg-4">
         <h2>Parameters</h2>
       </section>
-    </div>  
+    </div>
   </main>
 </template>
-<style scoped>
-
-</style>
+<style scoped></style>
