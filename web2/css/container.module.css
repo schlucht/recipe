@@ -1,0 +1,50 @@
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    padding: 1rem;
+    background-color: red;
+    display: grid;  
+    grid-template-areas: "product"
+                        "unit"
+                        "param";
+}
+
+section {
+    border: solid 1px gray;
+    width: 100%;
+    padding: 1rem;   
+}
+
+#product {
+    grid-area: product;
+}
+#unit {
+    grid-area: unit;
+}
+#params {
+    grid-area: param;
+}
+@media screen and (min-width: 564px) {
+    .container {
+        background-color: blue;
+    }
+}
+@media screen and (min-width: 786px) {
+    .container {
+        grid-template-areas: "product unit unit"                       
+                            " param param param";
+        background-color: green;
+    }
+}
+@media screen and (min-width: 1014px) {
+    .container {
+        grid-template-areas: "product unit param param param";
+        background-color: yellow;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .container {
+        background-color: lightcoral;
+    }
+}
