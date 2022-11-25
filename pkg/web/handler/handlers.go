@@ -4,22 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/schlucht/gorecipe/fhx"
+	"github.com/schlucht/gorecipe/pkg/fhx"
 	"github.com/schlucht/gorecipe/pkg/web/config"
 	"github.com/schlucht/gorecipe/pkg/web/model"
 	"github.com/schlucht/gorecipe/pkg/web/render"
 )
-
-type TemplateData struct {
-	StringMap map[string]string
-	IntMap    map[string]int
-	FloatMap  map[string]float64
-	Data      map[string]interface{}
-	CSRFToken string
-	Flash     string
-	Warning   string
-	Error     string
-}
 
 var Repo *Repository
 
@@ -41,9 +30,12 @@ func (m *Repository) ReadFhx(w http.ResponseWriter, r *http.Request) {
 	fhx2, _ := fhx.ReadUTF16("fhx/deltaV.fhx")
 	reg := make(map[string]string)
 	reg["name"] = `BATCH_RECIPE NAME="(?P<s>.*)" T`
-	name := fhx.ReadRegex(reg, fhx2)
-	fmt.Printf("%v\n", name["name"])
-	// w.Write()
+	stringMap := make(map[string]string)
+	title := fhx.ReadRegex(reg, fhx2)
+	stringMap["name"] = fmt.Sprint(title["name"])
+	render.RenderTemplate(w, "fhx.page.html", &model.TemplateData{
+		StringMap: stringMap,
+	})
 }
 
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {

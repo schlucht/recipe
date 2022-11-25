@@ -1,0 +1,13 @@
+{{template "base" .}}
+{{define "content"}}
+    <h2 class="display-3">This is my about site</h2>
+    <p class="text-primary">{{index .StringMap "hallo"}}</p>
+
+    <p class="badge bg-success">
+        {{ if ne (index .StringMap "name") ""}}
+            <h1>{{index .StringMap "name"}}</h1>
+        {{else}}
+            I don't know your ip Address yet. Visite the <a href="/">Home</a>
+        {{end}}
+    </p>
+{{end}}
