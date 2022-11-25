@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"path/filepath"
 
+	"github.com/justinas/nosurf"
 	"github.com/schlucht/gorecipe/pkg/web/config"
 	"github.com/schlucht/gorecipe/pkg/web/model"
 )
@@ -19,10 +20,11 @@ func NewTemplate(a *config.AppConfig) {
 	app = a
 }
 
-func AddDefaultData(td *model.TemplateData)*model.TemplateData {
+func AddDefaultData(td *model.TemplateData, r *http.Request) *model.TemplateData {
+	td.CSRFToken = nosurf.Token(r)
 	return td
 }
-func RenderTemplate(w http.ResponseWriter, tmpl string, td *model.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *model.TemplateData) {
 	var tc map[string]*template.Template
 
 	if app.UseCatch {
@@ -36,7 +38,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *model.TemplateData) 
 		log.Fatal("Could not get template from template cache")
 	}
 	buf := new(bytes.Buffer)
-	td = AddDefaultData(td)
+	td = AddDefaultData(td, r )
 	_ = t.Execute(buf, td)
 	_, err := buf.WriteTo(w)
 	if err != nil {

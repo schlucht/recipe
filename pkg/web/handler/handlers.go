@@ -33,7 +33,7 @@ func (m *Repository) ReadFhx(w http.ResponseWriter, r *http.Request) {
 	stringMap := make(map[string]string)
 	title := fhx.ReadRegex(reg, fhx2)
 	stringMap["name"] = fmt.Sprint(title["name"])
-	render.RenderTemplate(w, "fhx.page.html", &model.TemplateData{
+	render.RenderTemplate(w, r, "fhx.page.html", &model.TemplateData{
 		StringMap: stringMap,
 	})
 }
@@ -41,7 +41,7 @@ func (m *Repository) ReadFhx(w http.ResponseWriter, r *http.Request) {
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	remoteIp := r.RemoteAddr
 	m.App.Session.Put(r.Context(), "remote_ip", remoteIp)
-	render.RenderTemplate(w, "index.page.html", &model.TemplateData{})
+	render.RenderTemplate(w, r, "index.page.html", &model.TemplateData{})
 }
 
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
@@ -52,7 +52,7 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 
 	stringMap["remote_ip"] = remoteIp
 
-	render.RenderTemplate(w, "about.page.html", &model.TemplateData{
+	render.RenderTemplate(w, r, "about.page.html", &model.TemplateData{
 		StringMap: stringMap,
 	})
 }
