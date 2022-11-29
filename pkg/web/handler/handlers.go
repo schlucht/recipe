@@ -39,18 +39,27 @@ func (m *Repository) ReadFhx(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	remoteIp := r.RemoteAddr
-	m.App.Session.Put(r.Context(), "remote_ip", remoteIp)
 	render.RenderTemplate(w, r, "index.page.html", &model.TemplateData{})
+}
+
+func (m *Repository) NewUnit(w http.ResponseWriter, r *http.Request) {
+	unit := model.Unit{}
+	units := unit.Load()
+	unitData := make(map[string]interface{})
+	unitData["units"] = units
+	render.RenderTemplate(w, r, "form.page.html", &model.TemplateData{
+		Data: unitData,
+	})
+}
+
+func (m *Repository) PostNewUnit(w http.ResponseWriter, r *http.Request) {
+	title := r.Form.Get("uptitle")
+	w.Write([]byte("Posted the new UP Tilte " + title))
 }
 
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 	stringMap := make(map[string]string)
 	stringMap["hallo"] = "Welt"
-
-	remoteIp := m.App.Session.GetString(r.Context(), "remote_ip")
-
-	stringMap["remote_ip"] = remoteIp
 
 	render.RenderTemplate(w, r, "about.page.html", &model.TemplateData{
 		StringMap: stringMap,

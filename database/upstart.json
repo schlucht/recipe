@@ -1,0 +1,12 @@
+{
+    "name": "UP_Q2000_START",
+    "parameters": [
+        {
+            "paramName": "FP_SOLE_TEMP",
+            "min": -20,
+            "max": 180,
+            "unit": "°C",
+            "standard": 45           
+        }
+    ]
+}

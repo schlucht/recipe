@@ -1,13 +1,10 @@
 {{template "base" .}}
 {{define "content"}}
-    <h2 class="display-3">This is my about site</h2>
-    <p class="text-primary">{{index .StringMap "hallo"}}</p>
-
-    <p class="badge bg-success">
-        {{ if ne (index .StringMap "remote_ip") ""}}
-            Your remote IP address {{index .StringMap "remote_ip"}}
-        {{else}}
-            I don't know your ip Address yet. Visite the <a href="/">Home</a>
-        {{end}}
-    </p>
+    <main>
+        <div class="container">
+            <div class="row">
+                <h1>Meine Daten</h1>
+            </div>
+        </div>
+    </main>
 {{end}}

@@ -1,0 +1,20 @@
+{{template "base" .}}
+{{define "content"}}
+    <div class="row">
+        <form action="/newunit" method="POST">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Unit</label>
+                <input type="text" name="csrf_token" value="{{.CSRFToken}}">                
+                <input type="text" class="form-control" name="uptitle">
+                <select name="units" id="units">
+                    <option value="clear"> </option>
+                </select>
+              </div>     
+              <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {{ range index .Data "units" }}
+        <p>Hallo</p>
+        {{ .Unit }}        
+        {{end}}
+    </div>
+{{end}}
