@@ -1,8 +1,112 @@
+:root {
+    --white: white;
+    --black: black;
+    --light-gray: rgba(219,219,219,1);
+    --light-gray-75: rgba(219,219,219,.75);
+    --light-gray-50: rgba(219,219,219,.5);
+    --light-gray-25: rgba(219,219,219,0.25);
 
-.ots-bg {
-    background-color: var(--bs-gray-200)
+    --mid-blue: rgba(79, 140, 235, 1);
 }
+html {
+    font-size: 62.5%;
+}
+body {
+    --clr-bg: var(--light-gray-50);
+    --clr-font: var(--black)
+}
+body.black{
+    --clr-bg: var(--black);
+    --clr-font: var(--white);
+}
+body {
+    background-color: var(--clr-bg);
+    color: var(--clr-font);
+    font-size: 1.6rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+.top {
+    height: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10rem;
+    background-color: var(--mid-blue);
+    color: var(--white);
+}
+header {
+    background-color: var(--white);
+    color: var(--clr-font);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+header i {
+    color: var(--mid-blue);
+    font-size: 2rem;
+}
+.header-logo {    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/Arxada_BLUE.png');
+    height: 7rem;
+    width: 18rem;    
+    transform: translateX(-1rem);
+}
+header nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 6rem;    
+    
+}
+header nav a {
+    color: var(--clr-font);
+    line-height: 2rem;
+    text-decoration: none;
+}
+header nav a:hover {
+    color: var(--mid-blue);
+    line-height: 2rem;
+}
+header nav span {
+    color:var(--clr-font)
+}
+main {
+    height: 80vh;
+}
+main div {
+    
 
-.fs-7 {
-    font-size: .8rem;
+}
+footer {
+    height: 25rem;
+    background-color: var(--mid-blue);
+    color: var(--white); 
+    display: flex;
+    flex-direction: column;   
+}
+footer .footer-card {
+    width: 20rem;
+    height: 60%;
+    background-color: var(--white);
+    color: var(--black);
+    margin: 2rem 5rem;
+    border-radius: .5rem;
+}
+footer .bottom{
+    background-color: var(--mid-blue);
+    width: 100%;
+    border-top: 1px solid white;
+    height: 5rem;
+    
+}
+footer .bottom img {
+    height: 12rem;
+    width: 20rem;
 }

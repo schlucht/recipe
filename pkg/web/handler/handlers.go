@@ -38,10 +38,6 @@ func (m *Repository) ReadFhx(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, r, "index.page.html", &model.TemplateData{})
-}
-
 func (m *Repository) NewUnit(w http.ResponseWriter, r *http.Request) {
 	unit := model.Unit{}
 	units := unit.Load()
@@ -57,11 +53,4 @@ func (m *Repository) PostNewUnit(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Posted the new UP Tilte " + title))
 }
 
-func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
-	stringMap := make(map[string]string)
-	stringMap["hallo"] = "Welt"
 
-	render.RenderTemplate(w, r, "about.page.html", &model.TemplateData{
-		StringMap: stringMap,
-	})
-}

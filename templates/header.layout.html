@@ -1,0 +1,29 @@
+{{define "header"}}
+<div class="top">
+    <label for="toggle">
+        Hell / Dunkel
+        <input type="checkbox" name="toggle" id="toggle">
+    </label>
+</div>
+    <header class="pdel">        
+        <a href="/" alt="daschboard" class="header-logo"></a>
+        <a href="/" alt="daschboard">
+        <i class="bi bi-house-door-fill"></i>
+    </a>
+        <nav >
+            {{if ne (index .StringMap "title") "dashboard" }}
+                <a href="/" alt="Dashboard">Dashboard</a>
+            {{ else }}
+                <span>Dashboard</span>
+            {{ end }}
+            <a href="/fhx-reader" alt="Rezepte">Rezepte</a>
+            <a href="/" alt="Anpassungen">Bearbeiten</a>
+            {{if ne (index .StringMap "title") "about" }}
+                <a href="/about" alt="Hilfe">Hilfe</a>
+            {{ else }}
+                <span>Hilfe</span>
+            {{ end }}            
+        </nav>
+        
+    </header>
+{{end}}
